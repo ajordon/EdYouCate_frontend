@@ -1,0 +1,9 @@
+<div class="user-classrooms">
+  {{#if classroom}}
+    {{#each classroom}}
+      <li>{{> classroom}}</li>
+    {{/each}}
+  {{else}}
+    <li>No classes for you.......yet</li>
+  {{/if}}
+</div>
