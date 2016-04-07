@@ -4,14 +4,14 @@
 // "user" contains the user data which our server returns. "baseUrl" is set at document.ready
 const globalObjects = require('./global-objects');
 
-let classroomLister = function(classroom) {
+let classroomLister = function(classrooms) {
   let classroomTemplate = require('./hb/class-listing.handlebars');
-  $('.classroom').html(classroomTemplate({classroom}));
+  $('.classroom').html(classroomTemplate({classrooms}));
 };
 
-let assignmentLister = function(assignment) {
+let assignmentLister = function(assignments) {
   let assignmentTemplate = require('./hb/assignment-listing.handlebars');
-  $('.assignment').html(assignmentTemplate({assignment}));
+  $('.assignment').html(assignmentTemplate({assignments}));
 };
 
 const getClassrooms = function() {
@@ -51,7 +51,7 @@ const addClassroom = function(e) {
   });
 };
 
-const updateClassroom = function() {
+const updateClassroom = function(e) {
   e.preventDefault();
   let formData = new FormData(e.target);
   $.ajax({
@@ -65,6 +65,7 @@ const updateClassroom = function() {
     data: formData,
   }).done(function(data) {
     getClassrooms();
+    $('#updateClassModal').modal('hide');
     console.log("Successfully updated the classroom!");
   }).fail(function(data) {
     console.error(data);
@@ -80,6 +81,8 @@ const deleteClassroom = function() {
     }
   }).done(function() {
     console.log("Successfully deleted the classroom!");
+    $('#deleteClassModal').modal('hide');
+    getClassrooms();
   }).fail(function(data) {
     console.error(data);
   });
@@ -91,11 +94,7 @@ const addStudent = function() {
 
 };
 
-const findStudent = function() {
-
-};
-
-const showStudents = function() {
+const getStudents = function() {
 
 };
 
@@ -110,7 +109,7 @@ const deleteStudent = function() {
 
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
-const showAssignments = function() {
+const getAssignments = function() {
   $.ajax({
     url: globalObjects.baseUrl + '/classrooms/' + globalObjects.currClassroom + '/assignments',
     method: 'GET',
@@ -120,7 +119,7 @@ const showAssignments = function() {
     dataType: 'json'
   }).done(function(data) {
     console.log(data.classrooms);
-    assignementLister(data.classrooms.assignments);
+    assignmentLister(data.classrooms.assignments);
   }).fail(function(data) {
     console.error(data);
   });
@@ -138,12 +137,13 @@ const showDashboard = function(){
 module.exports = {
   showDashboard,
 
-  getClassrooms,
   addClassroom,
+  getClassrooms,
+  updateClassroom,
+  deleteClassroom,
 
   addStudent,
-  findStudent,
-  showStudents,
+  getStudents,
   updateStudent,
   deleteStudent,
 

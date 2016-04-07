@@ -24,8 +24,19 @@ let userHandler = function() {
   });
   $('.sidebar').hide();
   $('.dashboard').hide();
+
   $('#addClass').on('submit', dashFunc.addClassroom);
+  $('#updateClass').on('submit', dashFunc.updateClassroom);
+  $('.delete-classroom-form').on('click', dashFunc.deleteClassroom);
+
   $('#addStudent').on('submit', dashFunc.addStudent);
+  // $('#updateStudent').on('submit', dashFunc.updateStudent);
+  // $('#deleteStudent').on('submit', dashFunc.deleteStudent);
+  //
+  // $('#getAssignment').on('submit', dashFunc.addAssignment);
+  // $('#updateAssignment').on('submit', dashFunc.updateAssignment);
+  // $('#deleteAssignment').on('submit', dashFunc.deleteAssignment);
+
   $('.classroom-btn').hide();
 };
 

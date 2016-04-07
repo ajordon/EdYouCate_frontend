@@ -1,0 +1,20 @@
+<table>
+  <thead>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Comments</th>
+    <th>Grade</th>
+    <th>Due Date</th>
+  </thead>
+  <tbody>
+    <div class="class-assignments">
+      {{#if assignments}}
+        {{#each assignments}}
+          <tr>{{> assignment}}</tr>
+        {{/each}}
+      {{else}}
+        No assignments for you.......yet
+      {{/if}}
+    </div>
+  </tbody>
+</table>

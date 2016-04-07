@@ -184,6 +184,7 @@
           <hr>
 
           <a href="#menu-toggle" class="btn btn-default" id="menu-toggle"><i class="fa fa-backward"></i></a>
+          <a href="#" data-toggle="modal" data-target="#addAssignmentModal"><strong>+</strong>  Add Assignment</a>
           <!-- /#sidebar-wrapper -->
         </div>
       </div>
@@ -198,10 +199,7 @@
       </div>
 
 
-
-
-
-      <!-- **************** Modals ****************-->
+      <!-- **************** Classroom Modals ****************-->
       <!--Delete Class Modal-->
       <div class="modal fade" id="deleteClassModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
@@ -266,7 +264,7 @@
             </div>
             <!-- Update Classrom Modal Body -->
             <div class="modal-body">
-              <form id="updateClass" enctype="multipart/form-data">
+              <form id="updateClass">
                 <div class="form-group">
                   <label for="classroomName">Name</label>
                   <input type="name" class="form-control" name="classroom[name]" placeholder="Algebra 101" />
@@ -283,5 +281,9 @@
         </div>
       </div>
       <!-- End Update Classrom Modal -->
+
+      <!-- **************** Assignment Modals ****************-->
+
+      <!-- **************** Student Modals ****************-->
     </body>
 </html>
