@@ -104,7 +104,6 @@ const getAssignments = function() {
     },
     dataType: 'json'
   }).done(function(data) {
-    console.log(data);
     assignmentLister(data.assignments);
   }).fail(function(data) {
     console.error(data);
@@ -180,7 +179,6 @@ const getStudents = function() {
     },
     dataType: 'json'
   }).done(function(data) {
-    console.log(data);
     studentLister(data.students);
   }).fail(function(data) {
     console.error(data);
@@ -199,8 +197,7 @@ const addStudent = function(e) {
     contentType: false,
     processData: false,
     data: formData,
-  }).done(function(data) {
-    console.log(data);
+  }).done(function() {
     $('#addStudentModal').modal('hide');
     getStudents();
   }).fail(function(data) {
@@ -221,7 +218,6 @@ const updateStudent = function(e) {
     processData: false,
     data: formData,
   }).done(function(data) {
-    console.log(data);
     $('#updateStudentModal').modal('hide');
     console.log("Successfully updated the student!");
     getStudents();

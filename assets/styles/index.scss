@@ -1,6 +1,6 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
-@import url(https://fonts.googleapis.com/css?family=Righteous);
+@import url(https://fonts.googleapis.com/css?family=Comfortaa:400,300);
 
 $background: #0E394F;
 $font-color: #f0f0f0;
@@ -21,7 +21,7 @@ $dark-grey: #5A5E61;
 }
 
 .assignments {
-	width: 100%;
+	width: 50%;
 }
 
 .bgimage {
@@ -55,7 +55,7 @@ body {
   background-color: $background;
   margin-top: 80px;
   color: $font-color;
-  font-family: 'Righteous', cursive;
+	font-family: 'Comfortaa', cursive;
   font-size: 14px;
   display: block;
 }
@@ -103,7 +103,7 @@ td {
 }
 
 section {
-
+	width: 50%;
 }
 
 .success {
@@ -111,6 +111,10 @@ section {
   background-color: #dff0d8;
   border-color: #d6e9c6;
   display: none;
+}
+
+.students-container {
+	width: 50%;
 }
 
 strong {
