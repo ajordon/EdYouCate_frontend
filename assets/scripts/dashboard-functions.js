@@ -11,7 +11,12 @@ let classroomLister = function(classrooms) {
 
 let assignmentLister = function(assignments) {
   let assignmentTemplate = require('./hb/assignment-listing.handlebars');
-  $('.assignment').html(assignmentTemplate({assignments}));
+  $('.assignments').html(assignmentTemplate({assignments}));
+};
+
+let studentLister = function(students) {
+  let studentTemplate = require('./hb/student-listing.handlebars');
+  $('.students').html(studentTemplate({students}));
 };
 
 const getClassrooms = function() {
@@ -42,7 +47,7 @@ const addClassroom = function(e) {
     contentType: false,
     processData: false,
     data: formData,
-  }).done(function(data) {
+  }).done(function() {
     console.log("Added Classroom!");
     $('#addClassModal').modal('hide');
     getClassrooms();
@@ -63,7 +68,7 @@ const updateClassroom = function(e) {
     contentType: false,
     processData: false,
     data: formData,
-  }).done(function(data) {
+  }).done(function() {
     getClassrooms();
     $('#updateClassModal').modal('hide');
     console.log("Successfully updated the classroom!");
@@ -90,25 +95,6 @@ const deleteClassroom = function() {
 
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
-const addStudent = function() {
-
-};
-
-const getStudents = function() {
-
-};
-
-const updateStudent = function() {
-
-};
-
-const deleteStudent = function() {
-
-};
-
-
-////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
 const getAssignments = function() {
   $.ajax({
     url: globalObjects.baseUrl + '/classrooms/' + globalObjects.currClassroom + '/assignments',
@@ -118,12 +104,148 @@ const getAssignments = function() {
     },
     dataType: 'json'
   }).done(function(data) {
-    console.log(data.classrooms);
-    assignmentLister(data.classrooms.assignments);
+    console.log(data);
+    assignmentLister(data.assignments);
   }).fail(function(data) {
     console.error(data);
   });
 };
+
+const addAssignment = function(e) {
+  e.preventDefault();
+  let formData = new FormData(e.target);
+  $.ajax({
+    url: globalObjects.baseUrl + '/classrooms/' + globalObjects.currClassroom + '/assignments',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + globalObjects.user.token,
+    },
+    contentType: false,
+    processData: false,
+    data: formData,
+  }).done(function(data) {
+    console.log(data);
+    $('#addAssignmentModal').modal('hide');
+    getAssignments();
+  }).fail(function(data) {
+    console.error(data);
+  });
+};
+
+const updateAssignment = function(e) {
+  e.preventDefault();
+  let formData = new FormData(e.target);
+  $.ajax({
+    url: globalObjects.baseUrl + '/classrooms/' + globalObjects.currClassroom + '/assignments/' + globalObjects.currAssignment,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + globalObjects.user.token,
+    },
+    contentType: false,
+    processData: false,
+    data: formData,
+  }).done(function(data) {
+    console.log(data);
+    $('#updateAssignmentModal').modal('hide');
+    console.log("Successfully updated the classroom!");
+    getAssignments();
+  }).fail(function(data) {
+    console.error(data);
+  });
+};
+
+const deleteAssignment = function() {
+  $.ajax({
+    url: globalObjects.baseUrl + '/classrooms/' + globalObjects.currClassroom + '/assignments/' + globalObjects.currAssignment,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + globalObjects.user.token,
+    }
+  }).done(function() {
+    console.log("Successfully deleted the assignment!");
+    $('#deleteAssignment').modal('hide');
+    getAssignments();
+  }).fail(function(data) {
+    console.error(data);
+  });
+};
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+const getStudents = function() {
+  $.ajax({
+    url: globalObjects.baseUrl + '/classrooms/' + globalObjects.currClassroom + '/students',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + globalObjects.user.token,
+    },
+    dataType: 'json'
+  }).done(function(data) {
+    console.log(data);
+    studentLister(data.students);
+  }).fail(function(data) {
+    console.error(data);
+  });
+};
+
+const addStudent = function(e) {
+  e.preventDefault();
+  let formData = new FormData(e.target);
+  $.ajax({
+    url: globalObjects.baseUrl + '/classrooms/' + globalObjects.currClassroom + '/students',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + globalObjects.user.token,
+    },
+    contentType: false,
+    processData: false,
+    data: formData,
+  }).done(function(data) {
+    console.log(data);
+    $('#addStudentModal').modal('hide');
+    getStudents();
+  }).fail(function(data) {
+    console.error(data);
+  });
+};
+
+const updateStudent = function(e) {
+  e.preventDefault();
+  let formData = new FormData(e.target);
+  $.ajax({
+    url: globalObjects.baseUrl + '/classrooms/' + globalObjects.currClassroom + '/students/' + globalObjects.currStudent,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + globalObjects.user.token,
+    },
+    contentType: false,
+    processData: false,
+    data: formData,
+  }).done(function(data) {
+    console.log(data);
+    $('#updateStudentModal').modal('hide');
+    console.log("Successfully updated the student!");
+    getStudents();
+  }).fail(function(data) {
+    console.error(data);
+  });
+};
+
+const deleteStudent = function() {
+  $.ajax({
+    url: globalObjects.baseUrl + '/classrooms/' + globalObjects.currClassroom + '/students/' + globalObjects.currStudent,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + globalObjects.user.token,
+    }
+  }).done(function() {
+    console.log("Successfully deleted the student!");
+    $('#deleteStudentModal').modal('hide');
+    getStudents();
+  }).fail(function(data) {
+    console.error(data);
+  });
+};
+
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 const showDashboard = function(){
@@ -137,15 +259,18 @@ const showDashboard = function(){
 module.exports = {
   showDashboard,
 
-  addClassroom,
   getClassrooms,
+  addClassroom,
   updateClassroom,
   deleteClassroom,
 
-  addStudent,
+  getAssignments,
+  addAssignment,
+  updateAssignment,
+  deleteAssignment,
+
   getStudents,
+  addStudent,
   updateStudent,
   deleteStudent,
-
-  getAssignments,
 };

@@ -41,7 +41,7 @@
                     <input type="name" class="form-control" name="credentials[name]" placeholder="Mr. Teacher" />
                   </div>
                   <div class="form-group">
-                    <label for="signUpSchool">S</label>School
+                    <label for="signUpSchool">School</label>School
                     <input type="school" class="form-control" name="credentials[school]" placeholder="P.S. 151" />
                   </div>
                   <div class="form-group">
@@ -177,23 +177,31 @@
               <div class="classroom"></div>
               <br />
               <li>
-                <div class="students"></div>
+
               </li>
             </ul>
           </div>
           <hr>
 
           <a href="#menu-toggle" class="btn btn-default" id="menu-toggle"><i class="fa fa-backward"></i></a>
-          <a href="#" data-toggle="modal" data-target="#addAssignmentModal"><strong>+</strong>  Add Assignment</a>
           <!-- /#sidebar-wrapper -->
         </div>
       </div>
       <div id="page-content-wrapper">
       <div class="dashboard">
-        <div class="assignments"></div>
+        <section class="assignment-container">
+          <a href="#" data-toggle="modal" data-target="#addAssignmentModal"><strong>+</strong>  Add Assignment</a>
+          <div class="assignments"></div>
+        </section>
+
+        <section class="student-container">
+          <a href="#" data-toggle="modal" data-target="#addStudentModal"><strong>+</strong>  Add Student</a>
+          <div class="students"></div>
+        </section>
+
         <div class="classroom-btn">
-          <button class="btn btn-primary btn-md update-class" data-toggle="modal" data-target="#updateClassModal">Edit</button>
-          <button class="btn btn-primary btn-md delete-class" data-toggle="modal" data-target="#deleteClassModal">Delete</button>
+          <button class="btn btn-primary btn-md update-class" data-toggle="modal" data-target="#updateClassModal">Edit Class</button>
+          <button class="btn btn-primary btn-md delete-class" data-toggle="modal" data-target="#deleteClassModal">Delete Class</button>
         </div>
       </div>
       </div>
@@ -267,7 +275,7 @@
               <form id="updateClass">
                 <div class="form-group">
                   <label for="classroomName">Name</label>
-                  <input type="name" class="form-control" name="classroom[name]" placeholder="Algebra 101" />
+                  <input type="name" class="form-control" name="classroom[name]" />
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
               </form>
@@ -283,7 +291,207 @@
       <!-- End Update Classrom Modal -->
 
       <!-- **************** Assignment Modals ****************-->
+      <!-- Add Assignment modal -->
+      <div class="modal fade" id="addAssignmentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <!-- Add Assignment Modal Header -->
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">
+                 <span aria-hidden="true">&times;</span>
+                 <span class="sr-only">Close</span>
+              </button>
+              <h4 class="modal-title" id="myModalLabel">New Assignment</h4>
+            </div>
+
+            <!-- Add Assignment Modal Body -->
+            <div class="modal-body">
+              <form id="addAssignment" enctype="multipart/form-data">
+                <div class="form-group">
+                  <label for="assignmentTitle">Title</label>
+                  <input type="name" class="form-control" name="assignment[title]"/>
+                </div>
+                <div class="form-group">
+                  <label for="assignmentDesc">Description</label>
+                  <input type="name" class="form-control" name="assignment[description]" />
+                </div>
+                <div class="form-group">
+                  <label for="assignmentDueDate">Due Date</label>
+                  <input type="date" class="form-control" name="assignment[due_date]" />
+                </div>
+                <div class="form-group">
+                  <label for="assignmentComments">Comments</label>
+                  <input type="tex" class="form-control" name="assignment[comments]" />
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+            </div>
+
+            <!-- Add Assignment Modal Footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End Add Assignment Modal -->
+
+      <!-- Edit Assignment modal -->
+      <div class="modal fade" id="updateAssignmentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <!-- Edit Assignment Modal Header -->
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">
+                 <span aria-hidden="true">&times;</span>
+                 <span class="sr-only">Close</span>
+              </button>
+              <h4 class="modal-title" id="myModalLabel">Edit Assignment</h4>
+            </div>
+
+            <!-- Edit Assignment Modal Body -->
+            <div class="modal-body">
+              <form id="updateAssignment" enctype="multipart/form-data">
+                <div class="form-group">
+                  <label for="assignmentTitle">Title</label>
+                  <input type="name" class="form-control" name="assignment[title]" />
+                </div>
+                <div class="form-group">
+                  <label for="assignmentDesc">Description</label>
+                  <input type="text" class="form-control" name="assignment[description]" />
+                </div>
+                <div class="form-group">
+                  <label for="assignmentGrade">Grade</label>
+                  <input type="number" class="form-control" name="assignment[grade]" placeholder="0-100" min="0" max="100"/>
+                </div>
+                <div class="form-group">
+                  <label for="assignmentDueDate">Due Date</label>
+                  <input type="date" class="form-control" name="assignment[due_date]" />
+                </div>
+                <div class="form-group">
+                  <label for="assignmentComments">Comments</label>
+                  <input type="text" class="form-control" name="assignment[comments]" />
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+            </div>
+
+            <!-- Edit Assignment Modal Footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End Edit Assignment Modal -->
+
+      <!--Delete Assignment Modal-->
+      <div class="modal fade" id="deleteAssignment" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Delete Assignment</h4>
+            </div>
+            <div class="modal-body delete-confirmation">
+              <h4>Are you sure you want to delete this&hellip;?</h4>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-default delete-assignment-form">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div><!--End of Delete Assignment modal-->
 
       <!-- **************** Student Modals ****************-->
+      <!-- New Student modal -->
+      <div class="modal fade" id="addStudentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <!-- New Student Modal Header -->
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">
+                 <span aria-hidden="true">&times;</span>
+                 <span class="sr-only">Close</span>
+              </button>
+              <h4 class="modal-title" id="myModalLabel">New Student</h4>
+            </div>
+            <!-- New Student Modal Body -->
+            <div class="modal-body">
+              <form id="addStudent" enctype="multipart/form-data">
+                <div class="form-group">
+                  <label for="studentName">Name</label>
+                  <input type="name" class="form-control" name="student[name]" />
+                </div>
+                <div class="form-group">
+                  <label for="studentComments">Comments</label>
+                  <input type="name" class="form-control" name="student[comments]" />
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+            </div>
+
+            <!-- New Student Footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End New Student Modal -->
+
+      <!-- Update Student modal -->
+      <div class="modal fade" id="updateStudentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <!-- Update Student Modal Header -->
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">
+                 <span aria-hidden="true">&times;</span>
+                 <span class="sr-only">Close</span>
+              </button>
+              <h4 class="modal-title" id="myModalLabel">Update Student</h4>
+            </div>
+            <!-- Update Student Modal Body -->
+            <div class="modal-body">
+              <form id="updateStudent" enctype="multipart/form-data">
+                <div class="form-group">
+                  <label for="studentName">Name</label>
+                  <input type="name" class="form-control" name="student[name]" />
+                </div>
+                <div class="form-group">
+                  <label for="studentComments">Comments</label>
+                  <input type="name" class="form-control" name="student[comments]" />
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+            </div>
+
+            <!-- Update Student Footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End Update Student Modal -->
+
+      <!--Delete Student Modal-->
+      <div class="modal fade" id="deleteStudentsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Delete Student</h4>
+            </div>
+            <div class="modal-body delete-confirmation">
+              <h4>Are you sure you remove this student from the class?</h4>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-default delete-student-form">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div><!--End of Delete Assignment modal-->
     </body>
 </html>

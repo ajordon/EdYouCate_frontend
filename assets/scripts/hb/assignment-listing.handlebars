@@ -2,19 +2,14 @@
   <thead>
     <th>Title</th>
     <th>Description</th>
-    <th>Comments</th>
-    <th>Grade</th>
     <th>Due Date</th>
   </thead>
   <tbody>
+    <hr>
     <div class="class-assignments">
-      {{#if assignments}}
-        {{#each assignments}}
-          <tr>{{> assignment}}</tr>
-        {{/each}}
-      {{else}}
-        No assignments for you.......yet
-      {{/if}}
+      {{#each assignments}}
+        <tr>{{> assignment}}</tr>
+      {{/each}}
     </div>
   </tbody>
 </table>

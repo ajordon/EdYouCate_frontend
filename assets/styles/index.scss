@@ -20,6 +20,10 @@ $dark-grey: #5A5E61;
   border-radius: 4px;
 }
 
+.assignments {
+	width: 100%;
+}
+
 .bgimage {
   width: 100%;
   padding: 1em;
@@ -83,16 +87,19 @@ p {
   font-size: 1.2em;
 }
 
-tr:nth-child(odd){
+tr:nth-child(even){
+	background-color: $red;
 }
 
 th {
 	color: $white;
+	padding: .3em;
 }
 
 td {
 	padding: 1em;
   max-width: 5em;
+	box-sizing: content-box;;
 }
 
 section {

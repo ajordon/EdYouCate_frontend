@@ -24,18 +24,18 @@ let userHandler = function() {
   });
   $('.sidebar').hide();
   $('.dashboard').hide();
-
+  //=========================================
   $('#addClass').on('submit', dashFunc.addClassroom);
   $('#updateClass').on('submit', dashFunc.updateClassroom);
   $('.delete-classroom-form').on('click', dashFunc.deleteClassroom);
 
+  $('#addAssignment').on('submit', dashFunc.addAssignment);
+  $('#updateAssignment').on('submit', dashFunc.updateAssignment);
+  $('.delete-assignment-form').on('click', dashFunc.deleteAssignment);
+
   $('#addStudent').on('submit', dashFunc.addStudent);
-  // $('#updateStudent').on('submit', dashFunc.updateStudent);
-  // $('#deleteStudent').on('submit', dashFunc.deleteStudent);
-  //
-  // $('#getAssignment').on('submit', dashFunc.addAssignment);
-  // $('#updateAssignment').on('submit', dashFunc.updateAssignment);
-  // $('#deleteAssignment').on('submit', dashFunc.deleteAssignment);
+  $('#updateStudent').on('submit', dashFunc.updateStudent);
+  $('.delete-student-form').on('click', dashFunc.deleteStudent);
 
   $('.classroom-btn').hide();
 };
@@ -45,24 +45,35 @@ $(document).ready(() => {
   document.location.hostname === 'localhost' ?
     globalObjects.baseUrl = 'http://localhost:3000' :
     globalObjects.baseUrl = ''; // set to our heroku app URL
-    userHandler(); // Calls jquery listener definintion function, above
-    // dashFunc.showDashboard();
+  userHandler(); // Calls jquery listener definintion function, above
 
   $('.sidebar-nav').on('click', '.hb-show-classroom', function(e) {
     e.preventDefault();
     $('.classroom-btn').show();
     globalObjects.currClassroom = $(e.target).attr("data-id");
     dashFunc.getAssignments();
+    dashFunc.getStudents();
   });
 
-  $('.student-row').on('click', '.hb-show-students', function(e) {
+  $('#page-content-wrapper').on('click', '.hb-update-assignment', function(e) {
+    e.preventDefault();
+    globalObjects.currAssignment = $(e.target).attr("data-id");
+  });
+
+  $('#page-content-wrapper').on('click', '.hb-delete-assignment', function(e) {
+    e.preventDefault();
+    globalObjects.currAssignment = $(e.target).attr("data-id");
+  });
+
+  $('#page-content-wrapper').on('click', '.hb-update-student', function(e) {
     e.preventDefault();
     globalObjects.currStudent = $(e.target).attr("data-id");
   });
 
-  $('.assignment-row').on('click', '.hb-show-assignment', function(e) {
+  $('#page-content-wrapper').on('click', '.hb-delete-student', function(e) {
     e.preventDefault();
-    globalObjects.currAssignment = $(e.target).attr("data-id");
+    globalObjects.currStudent = $(e.target).attr("data-id");
+    dashFunc.deleteStudent();
   });
 
 });
