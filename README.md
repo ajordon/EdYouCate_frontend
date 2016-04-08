@@ -4,7 +4,7 @@ This is my educational web application to be used as a tool to manage classrooms
 [Link to backend Repo](https://github.com/ajordon/EdYouCate_backend)
 
 ## User Stories
-[Imgur](http://i.imgur.com/fjEABS7.jpg)
+[User Stories](http://i.imgur.com/fjEABS7.jpg)
 
 ## ERD
 [ERD](http://imgur.com/r10UjE3)
