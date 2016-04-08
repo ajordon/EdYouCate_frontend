@@ -1,5 +1,5 @@
 ### Ed-You-Cate Web App
-This is my educational web application to be used as a tool to manage students and assignments.
+This is my educational web application to be used as a tool to manage classrooms and assignments.
 
 [Link to backend Repo](https://github.com/ajordon/EdYouCate_backend)
 
@@ -10,6 +10,11 @@ This is my educational web application to be used as a tool to manage students a
 [ERD](http://imgur.com/r10UjE3)
 
 ## Wireframes
-[Wireframe_1](http://imgur.com/DnOz0Yi)
-[Wireframe_2](http://imgur.com/UmWr2nA)
-[Wireframe_3](http://imgur.com/vgJTEiW)
+- [Wireframe_1](http://imgur.com/DnOz0Yi)
+- [Wireframe_2](http://imgur.com/UmWr2nA)
+- [Wireframe_3](http://imgur.com/vgJTEiW)
+
+## Future Development
+- Student Grade displayed after a student click
+- UI redesign
+- When a class assignment is created, add that assignment  to all students in that classroom
