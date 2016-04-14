@@ -40,7 +40,7 @@ const signIn = function(e) {
       assignUserData(data);
       console.log("successfully signed in");
       $( "div.success" ).fadeIn( 300 ).delay( 1500 ).fadeOut( 400 );
-      $('.navbar-text').html("Welcome " + globalObjects.user.name);
+      $('.navbar-text').html("Welcome " + globalObjects.user.name).css("color", "#28AF63");
       $('#signInModal').modal('hide');
       $('.bgimage').hide();
       $('.sign-up').hide();
@@ -73,6 +73,12 @@ const signOut = function() {
     $('.navbar-text').html("Welcome!");
     $('.sign-up').show();
     $('.sign-in').show();
+    $('.bgimage').show();
+    $('.title').show();
+    $('.sidebar').hide();
+    $('.dashboard').hide();
+    $('.change-password').hide();
+    $('.sign-out').hide();
   }).fail(function(data) {
     console.error(data);
     $( "div.failure" ).fadeIn( 300 ).delay( 1500 ).fadeOut( 400 );
