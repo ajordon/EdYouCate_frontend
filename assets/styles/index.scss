@@ -25,6 +25,13 @@ $dark-grey: #5A5E61;
 	width: 50%;
 }
 
+.assignment-container {
+	width: 65%;
+	float: right;
+	border: 1px solid $grey;
+  border-radius: 4px;
+}
+
 .bgimage {
   width: 100%;
 	position: fixed;
@@ -163,13 +170,6 @@ section {
 
 .students {
 	width: 100%;
-}
-
-.assignment-container {
-	width: 65%;
-	float: right;
-	border: 1px solid $grey;
-  border-radius: 4px;
 }
 
 strong {
