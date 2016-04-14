@@ -43,8 +43,8 @@ let userHandler = function() {
 $(document).ready(() => {
   // checks whether page is open in localhost, and sets the baseUrl based on that
   // document.location.hostname === 'localhost' ?
-  //   globalObjects.baseUrl = '' :
-    globalObjects.baseUrl = 'https://hidden-woodland-77276.herokuapp.com/'; // set to our heroku app URL
+    // globalObjects.baseUrl = 'http://localhost:3000';
+    globalObjects.baseUrl = 'https://hidden-woodland-77276.herokuapp.com'; // set to our heroku app URL
   userHandler(); // Calls jquery listener definintion function, above
 
   $('.sidebar-nav').on('click', '.hb-show-classroom', function(e) {

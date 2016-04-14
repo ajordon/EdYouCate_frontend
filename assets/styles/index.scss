@@ -1,14 +1,15 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
-@import url(https://fonts.googleapis.com/css?family=Comfortaa:400,300);
+@import url(https://fonts.googleapis.com/css?family=Comfortaa:400,500);
 
-$background: #0E394F;
+$background:  #1A2828;
 $font-color: #f0f0f0;
 $sec-color: #96AD3E;
 $footer-color: #09303B;
 $red: #f00;
 $white: #fff;
 $black: #000;
+$green: #28AF63;
 $grey: #CCCCCC;
 $box-hover: #878787;
 $dark-grey: #5A5E61;
@@ -26,7 +27,7 @@ $dark-grey: #5A5E61;
 
 .bgimage {
   width: 100%;
-  padding: 1em;
+	position: fixed;
 }
 
 .bg-primary {
@@ -35,7 +36,7 @@ $dark-grey: #5A5E61;
 }
 
 button {
-  background-color: #fff;
+  background-color: $green;
   border-color: #ccc;
   margin-bottom: 0;
   text-align: center;
@@ -51,13 +52,27 @@ button {
   margin: 10px;
 }
 
+.btn-primary {
+  background-color: $green !important;
+}
+
 body {
   background-color: $background;
-  margin-top: 80px;
+  margin-top: 45px;
   color: $font-color;
 	font-family: 'Comfortaa', cursive;
   font-size: 14px;
   display: block;
+}
+
+.classroom-btn {
+	margin-left: 28%;
+	margin-top: 2em;
+}
+
+.container-fluid {
+	padding-left: 0px !important;
+	padding-right: 0px !important;
 }
 
 .failure {
@@ -67,6 +82,17 @@ body {
   display: none;
 }
 
+h1 {
+	font-size: 6em;
+  text-decoration: underline;
+  font-weight: bolder;
+	text-shadow: 0 0 .1em $black;
+}
+
+h3,
+.dark {
+	color: $green;
+}
 
 h1,
 h3 {
@@ -83,17 +109,32 @@ label,
   z-index: 1020;
 }
 
+.navbar-fixed-top{
+	background-color: $black;
+}
+
 p {
   font-size: 1.2em;
 }
 
+.title {
+	text-align: center;
+	margin: 0 auto;
+  position: relative;
+  padding-top: 19em;
+}
+
 tr:nth-child(even){
-	background-color: $red;
+	background-color: #9EA09D;
 }
 
 th {
 	color: $white;
 	padding: .3em;
+}
+
+table {
+	width: 100%;
 }
 
 td {
@@ -113,13 +154,32 @@ section {
   display: none;
 }
 
-.students-container {
-	width: 50%;
+.student-container {
+	width: 35%;
+	float: left;
+	border: 1px solid $grey;
+  border-radius: 4px;
+}
+
+.students {
+	width: 100%;
+}
+
+.assignment-container {
+	width: 65%;
+	float: right;
+	border: 1px solid $grey;
+  border-radius: 4px;
 }
 
 strong {
-  color: $sec-color;
+  color: $green;
 	font-size: 2.3em;
+	text-shadow: 0 0 .1em $black;
+}
+
+.students-container {
+	width: 100%;
 }
 
 /////////////////// Side Bar Css ///////////////////
@@ -157,8 +217,7 @@ strong {
 #page-content-wrapper {
     width: 100%;
     position: absolute;
-    padding: 15px;
-		margin-top: 1em;
+    padding: 3px;
     margin-left: 18em;
 }
 
