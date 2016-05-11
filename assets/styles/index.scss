@@ -2,7 +2,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 @import url(https://fonts.googleapis.com/css?family=Comfortaa:400,500);
 
-$background:  #1A2828;
+$background:  #FAFAF5;
 $font-color: #f0f0f0;
 $sec-color: #96AD3E;
 $footer-color: #09303B;
@@ -14,6 +14,18 @@ $grey: #CCCCCC;
 $box-hover: #878787;
 $dark-grey: #5A5E61;
 
+a {
+  color: rgb(186, 0, 0);
+}
+
+.add-btn {
+	margin-left: 33%
+}
+
+.add-assign-btn {
+	margin-left: 40%
+}
+
 .alert-box {
 	padding: 15px;
   margin-bottom: 20px;
@@ -22,19 +34,22 @@ $dark-grey: #5A5E61;
 }
 
 .assignments {
-	width: 50%;
+	color: $red;
 }
 
-.assignment-container {
-	width: 65%;
-	float: right;
-	border: 1px solid $grey;
+.assignments-container {
+	width: 70%;
+	border: 1px solid $black;
   border-radius: 4px;
+	clear: both;
+	margin: 0 auto;
+	margin-left: 0px;
+	background-color: rgba(0, 0, 0, 0.86);
 }
 
 .bgimage {
   width: 100%;
-	position: fixed;
+	position: absolute;
 }
 
 .bg-primary {
@@ -82,6 +97,11 @@ body {
 	padding-right: 0px !important;
 }
 
+.dark-ln {
+	color: $black;
+	border-top: 1px solid #333;
+}
+
 .failure {
   color: #a94442;
   background-color: #f2dede;
@@ -104,6 +124,11 @@ h3,
 h1,
 h3 {
   text-align: center;
+}
+
+hr {
+	margin-top: 0px !important;
+	margin-bottom: 0px !important;
 }
 
 label,
@@ -138,10 +163,15 @@ tr:nth-child(even){
 th {
 	color: $white;
 	padding: .3em;
+	text-decoration: underline;
 }
 
 table {
 	width: 100%;
+}
+
+.table > thead > tr > th {
+	border-bottom: 0px;
 }
 
 td {
@@ -161,11 +191,13 @@ section {
   display: none;
 }
 
-.student-container {
-	width: 35%;
+.students-container {
+	width: 30%;
 	float: left;
-	border: 1px solid $grey;
+	border: 1px solid $black;
   border-radius: 4px;
+	margin-bottom: 1em;
+	background-color: rgba(26, 68, 14, 0.95);
 }
 
 .students {
@@ -178,8 +210,11 @@ strong {
 	text-shadow: 0 0 .1em $black;
 }
 
-.students-container {
-	width: 100%;
+.underbody {
+  color: $black;
+  padding: 100px;
+  width: 100%;
+
 }
 
 /////////////////// Side Bar Css ///////////////////

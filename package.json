@@ -4,6 +4,7 @@
   "private": true,
   "license": "MIT",
   "dependencies": {
+    "chartkick": "^1.4.2",
     "jquery": "^2.2.2"
   },
   "devDependencies": {

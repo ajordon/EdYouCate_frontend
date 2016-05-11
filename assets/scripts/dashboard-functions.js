@@ -28,7 +28,6 @@ const getClassrooms = function() {
     },
     dataType: 'json'
   }).done(function(data) {
-    console.log(data.classrooms);
     classroomLister(data.classrooms);
   }).fail(function(data) {
     console.error(data);

@@ -9,6 +9,7 @@ const globalObjects = require('./global-objects');
 // each key corresponds to a user function
 const userFunc = require('./user-functions');
 const dashFunc = require('./dashboard-functions');
+const graphFunc = require('./student-data');
 
 // all jquery event listeners should go here
 let userHandler = function() {
@@ -43,8 +44,8 @@ let userHandler = function() {
 $(document).ready(() => {
   // checks whether page is open in localhost, and sets the baseUrl based on that
   // document.location.hostname === 'localhost' ?
-  // globalObjects.baseUrl = 'http://localhost:3000';
-  globalObjects.baseUrl = 'https://hidden-woodland-77276.herokuapp.com'; // set to our heroku app URL
+  globalObjects.baseUrl = 'http://localhost:3000';
+  // globalObjects.baseUrl = 'https://hidden-woodland-77276.herokuapp.com'; // set to our heroku app URL
   userHandler(); // Calls jquery listener definintion function, above
 
   $('.sidebar-nav').on('click', '.hb-show-classroom', function(e) {
@@ -74,6 +75,20 @@ $(document).ready(() => {
     e.preventDefault();
     globalObjects.currStudent = $(e.target).attr("data-id");
     dashFunc.deleteStudent();
+    $('#student-grade-barchart').hide();
+  });
+
+  ////////////////////////////////////
+  $('.students-container').on('click', '.hb-show-student', function(e) {
+    e.preventDefault();
+    globalObjects.currStudent = $(e.target).attr("data-id");
+    graphFunc.showStudentData();
+  });
+
+  $('.assignments-container').on('click', '.hb-show-assignment', function(e) {
+    e.preventDefault();
+    globalObjects.currStudent = $(e.target).attr("data-id");
+    graphFunc.showStudentData();
   });
 
 });

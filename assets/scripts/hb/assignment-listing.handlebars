@@ -1,15 +1,13 @@
-<table>
+ <table class="table table-hover">
   <thead>
     <th>Title</th>
     <th>Description</th>
     <th>Due Date</th>
+    <th>Grade</th>
   </thead>
   <tbody>
-    <hr>
-    <div class="class-assignments">
-      {{#each assignments}}
-        <tr>{{> assignment}}</tr>
-      {{/each}}
-    </div>
+    {{#each assignments}}
+      <tr>{{> assignment}}</tr>
+    {{/each}}
   </tbody>
 </table>

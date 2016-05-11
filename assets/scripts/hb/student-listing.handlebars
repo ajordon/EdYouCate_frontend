@@ -1,13 +1,10 @@
-<table>
+<table class="table table-hover">
   <thead>
     <th>Students</th>
   </thead>
   <tbody>
-    <hr>
-    <div class="students-container">
-      {{#each students}}
-        <tr>{{> student}}</tr>
-      {{/each}}
-    </div>
+    {{#each students}}
+      <tr>{{> student}}</tr>
+    {{/each}}
   </tbody>
   </table

@@ -6,6 +6,7 @@
       <script src="vendor.bundle.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
       <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+  		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     </head>
     <header><!-- Nav bar start -->
       <nav class="navbar navbar-default navbar-fixed-top">
@@ -154,13 +155,32 @@
 
 
     <body class="container-fluid">
-      <div class="homepage">
+      <header>
         <img class="bgimage" src="./assets/images/education.jpg"/>
-        <div class="title">
-          <h1>Ed-You-Cate<br /></h1>
-          <h3><strong>Teach faster and more effectively!</strong></h3>
+        <div class="header-content title">
+           <div class="inner">
+            <h1>Ed-You-Cate<br /></h1>
+            <h3><strong>Teach faster and more effectively!</strong></h3>
+          </div>
         </div>
-      </div>
+      </header>
+
+      <!-- <div class="homepage">
+        <section class="bg-primary underbody">
+          <div class="container">
+             <div class="row">
+               <div class="col-lg-10 text-center">
+                 <h2 class="section-heading">We've got what you need!</h2>
+                 <hr class="dark">
+                 <p class="text-faded">This is <strong>Ed-You-Cate</strong>. It is a website for all of your teaching needs.
+                   Maintaing your classrooms and students with this online tool. Create unique assignments for your class and record
+                   your students performance.</p>
+                 <a href="#signup" class="btn btn-default btn-xl" data-toggle="modal" data-target="#signUpModal">Sign Up!</a>
+               </div>
+             </div>
+           </div>
+        </section>
+      </div> -->
 
       <div class="sidebar">
         <div id="wrapper">
@@ -172,36 +192,40 @@
                 <hr class="dark">
                 <br />
               </li>
-              <li>
-                <a href="#" data-toggle="modal" data-target="#addClassModal"><strong>+</strong>  Add Classroom</a>
-              </li>
               <div class="classroom"></div>
-              <br />
+              <hr>
+              <a href="#" data-toggle="modal" data-target="#addClassModal"><strong>+</strong>  Add Classroom</a>
             </ul>
           </div>
           <hr>
 
-          <a href="#menu-toggle" class="btn btn-default" id="menu-toggle"><i class="fa fa-backward"></i></a>
+          <!-- <a href="#menu-toggle" class="btn btn-default" id="menu-toggle"><i class="fa fa-backward"></i></a> -->
           <!-- /#sidebar-wrapper -->
         </div>
       </div>
       <div id="page-content-wrapper">
-      <div class="dashboard">
-        <section class="assignment-container">
-          <a href="#" data-toggle="modal" data-target="#addAssignmentModal"><strong>+</strong>  Add Assignment</a>
-          <div class="assignments"></div>
-        </section>
+        <div class="dashboard">
 
-        <section class="student-container">
-          <a href="#" data-toggle="modal" data-target="#addStudentModal"><strong>+</strong>  Add Student</a>
-          <div class="students"></div>
-        </section>
+          <section class="students-container">
+            <div class="students"></div>
+            <hr class="dark-ln">
+            <a class="add-btn" href="#" data-toggle="modal" data-target="#addStudentModal"><strong>+</strong>  Add Student</a>
+          </section>
 
-        <div class="classroom-btn">
-          <button class="btn btn-primary btn-md update-class" data-toggle="modal" data-target="#updateClassModal">Edit Class</button>
-          <button class="btn btn-primary btn-md delete-class" data-toggle="modal" data-target="#deleteClassModal">Delete Class</button>
+          <div id="student-grade-barchart"></div>
+          <div id="student-assignment-barchart"></div>
+
+          <section class="assignments-container">
+            <div class="assignments"></div>
+            <hr class="dark-ln">
+            <a class="add-assign-btn" href="#" data-toggle="modal" data-target="#addAssignmentModal"><strong>+</strong>  Add Assignment</a>
+          </section>
+
+          <div class="classroom-btn">
+            <button class="btn btn-primary btn-md update-class" data-toggle="modal" data-target="#updateClassModal">Edit Class</button>
+            <button class="btn btn-primary btn-md delete-class" data-toggle="modal" data-target="#deleteClassModal">Delete Class</button>
+          </div>
         </div>
-      </div>
       </div>
 
 
